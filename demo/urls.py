@@ -47,6 +47,7 @@ urlpatterns = patterns(
     url(r'^nodetypes/', include('gstudio.urls')),
     url(r'^gstudio/', include('gstudio.urls')),
     url(r'^objects/', include('objectapp.urls')),
+    url(r'^textb/', include('textbapp.urls')),
     url(r'^tagclouds/',include('gstudio.urls.tagclouds')),
 #    url(r'^comments/', include('django.contrib.comments.urls')),
    ###google verification 

@@ -17,6 +17,8 @@
 
 """This file has the settings for Gstudio Demo"""
 import os
+from os.path import join
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 TIME_ZONE = None
 gettext = lambda s: s
 direxist=os.path.isdir("/tmp/beta/")
@@ -104,7 +106,7 @@ LANGUAGES = (('en', gettext('English')),
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
@@ -121,6 +123,11 @@ TEMPLATE_LOADERS = (
         )
      ),
     )
+
+TEMPLATE_DIRS = (
+    join(PROJECT_ROOT, 'templates'),
+)
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -142,7 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sites',
     'mptt',
-    'reversion',
+    
     'tagging',
     'markitup',
     'django_xmlrpc',
@@ -162,7 +169,13 @@ INSTALLED_APPS = (
     'html5lib',
     'pagination',
     'notification',
+    'textbapp',
     'fixture_magic',
+    'django.contrib.flatpages',
+    #'south',
+    'django_extensions',
+    'reversion',
+    'mobwrite',
     # Uncomment the south entry to activate south for database migrations
     # Please do install south before uncommenting
     # command: sudo pip install south 
